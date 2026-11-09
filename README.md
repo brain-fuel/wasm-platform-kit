@@ -12,7 +12,9 @@ The repository is public development work. npm publication and release tags are
 pending: the revised installation lifecycle still needs the supported platform
 and Node acceptance matrix, including native macOS/Linux x64 execution. Existing
 acceptance JSON files record earlier runs; they do not certify subsequent changes.
-Human Canon review remains pending. See `DEC-wpk-installation-preparation` for the
+Canon validation still reports missing or unattached canonical comments;
+mandatory definition validation passes, while optional law verification is not
+selected. Human Canon review remains pending. See `DEC-wpk-installation-preparation` for the
 owner-approved name and installation contract.
 
 The npm lifecycle tests verify prebuilt installation, forced source preparation,

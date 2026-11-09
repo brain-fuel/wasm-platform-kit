@@ -2,15 +2,9 @@
 // ref:DEC-wpk-installation-preparation
 import {execFile} from 'node:child_process';
 import {createHash} from 'node:crypto';
-import {createReadStream} from 'node:fs';
-import {
-  copyFile,
-  mkdir,
-  mkdtemp,
-  rename,
-  rm,
-  writeFile,
-} from 'node:fs/promises';
+import {createReadStream, createWriteStream} from 'node:fs';
+import {pipeline} from 'node:stream/promises';
+import {mkdir, mkdtemp, rename, rm, writeFile} from 'node:fs/promises';
 import {createRequire} from 'node:module';
 import {fileURLToPath} from 'node:url';
 import path from 'node:path';
@@ -32,6 +26,31 @@ async function digest(file, limit)
     hash.update(chunk);
   }
   return hash.digest('hex');
+}
+
+/** Copies only bounded, pinned input into private installation staging. ref:DEC-wpk-installation-preparation */
+async function snapshot(component, destination, expected, signal)
+{
+  const hash = createHash('sha256');
+  let size = 0;
+  await pipeline(
+    createReadStream(component),
+    async function* (source)
+    {
+      for await (const chunk of source)
+      {
+        size += chunk.length;
+        if (size > 128 * 1024 * 1024)
+          throw new Error('Installation artifact size exhausted');
+        hash.update(chunk);
+        yield chunk;
+      }
+    },
+    createWriteStream(destination, {flags: 'wx', mode: 0o600}),
+    {signal},
+  );
+  if (hash.digest('hex') !== expected)
+    throw new Error('Portable component integrity mismatch');
 }
 
 /** Verifies a prebuilt artifact or compiles a pinned portable component during installation. ref:DEC-wpk-installation-preparation */
@@ -108,9 +127,7 @@ export async function prepareNative({
   {
     const source = path.join(staging, 'component.wasm');
     const output = path.join(staging, 'component.cwasm');
-    await copyFile(component, source);
-    if ((await digest(source, 128 * 1024 * 1024)) !== componentSha256)
-      throw new Error('Portable component integrity mismatch');
+    await snapshot(component, source, componentSha256, signal);
     signal?.throwIfAborted();
     const binary = require.resolve(
       `wasm-platform-kit-${platform}/bin/host-sdk-source-runtime`,

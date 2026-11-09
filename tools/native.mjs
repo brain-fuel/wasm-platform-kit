@@ -16,6 +16,19 @@ export const nativeTargets = Object.freeze({
   'linux-x64': 'x86_64-unknown-linux-gnu',
 });
 const configuration = 'host-sdk-0.2.0/wasmtime-50.0.1/fuel-v1';
+/** Applies the shared formatter to all generated registration and installer code. ref:DEC-wpk-installation-preparation */
+const formatJavaScript = source =>
+  format(source, {
+    parser: 'babel',
+    printWidth: 80,
+    tabWidth: 2,
+    singleQuote: true,
+    bracketSpacing: false,
+    trailingComma: 'all',
+    arrowParens: 'avoid',
+    plugins: [braceStyle],
+    braceStyle: 'allman',
+  });
 
 /** Hashes bounded native files without allocating their full contents. ref:DEC-host-sdk-precompiled-node */
 async function nativeDigest(file)
@@ -68,23 +81,14 @@ async function writeRegistration(directory, entries)
   await writeFile(path.join(directory, '.npmignore'), '.native/\n');
   await writeFile(
     path.join(directory, 'install.mjs'),
-    `// Generated installation bootstrap. ref:DEC-wpk-installation-preparation\nimport {prepareNative} from 'wasm-platform-kit/install';\nimport {prebuiltArtifacts} from './node-registration.mjs';\nawait prepareNative({directory: new URL('./', import.meta.url), component: new URL(${JSON.stringify(manifest.component)}, import.meta.url), componentSha256: ${JSON.stringify(manifest.sha256)}, prebuiltArtifacts});\n`,
+    await formatJavaScript(
+      `// Generated installation bootstrap. ref:DEC-wpk-installation-preparation\nimport {prepareNative} from 'wasm-platform-kit/install';\nimport {prebuiltArtifacts} from './node-registration.mjs';\nawait prepareNative({directory: new URL('./', import.meta.url), component: new URL(${JSON.stringify(manifest.component)}, import.meta.url), componentSha256: ${JSON.stringify(manifest.sha256)}, prebuiltArtifacts});\n`,
+    ),
   );
   await writeFile(
     path.join(directory, 'node-registration.mjs'),
-    await format(
+    await formatJavaScript(
       `// Trusted build output. Guest manifests cannot replace this authority.\nimport {installedNativeArtifacts} from 'wasm-platform-kit/native-registration';\nimport {createRequire} from 'node:module';\nimport {pathToFileURL} from 'node:url';\nconst require = createRequire(import.meta.url);\nexport const prebuiltArtifacts = Object.freeze({${items.join(',')}});\nexport const nativeArtifacts = installedNativeArtifacts({directory: new URL('./', import.meta.url), componentSha256: ${JSON.stringify(manifest.sha256)}, prebuiltArtifacts});\n`,
-      {
-        parser: 'babel',
-        printWidth: 80,
-        tabWidth: 2,
-        singleQuote: true,
-        bracketSpacing: false,
-        trailingComma: 'all',
-        arrowParens: 'avoid',
-        plugins: [braceStyle],
-        braceStyle: 'allman',
-      },
     ),
   );
 }

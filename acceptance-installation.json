@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-11-09T01:51:22.804299+00:00",
+  "sdk": "0.2.0",
+  "evidenceKind": "scoped execution tests; release acceptance incomplete",
+  "testedFiles": {
+    "install.mjs": "70d6b4c45af92ef50ae289598a5d4cedf66bac418ee8417901cb05575db418d0",
+    "native-registration.mjs": "51f9972edf81541330b2e1ddb29f27d4ef40f2a6a91badcaba690ed22227090f",
+    "node.mjs": "9ddfe5afd20ff2c22b925f1385c15cabaf23ff53a3ffd3aaf42206ed566180c3",
+    "tools/native.mjs": "5a6bbf111d1f144b161c24ad20d4b97b63e20952429345825397aaec1a6e4835",
+    "test/install.test.mjs": "15637fdff1404d42407527bfe5135c4cb5fa6c6c0ec72d9334cb414051111573"
+  },
+  "runs": [
+    {
+      "platform": "darwin-arm64",
+      "node": "v26.8.1",
+      "command": "npm test",
+      "passed": 43,
+      "note": "Full suite before bounded snapshot refinement; browser tests permit explicit unsupported profiles."
+    },
+    {
+      "platform": "darwin-arm64",
+      "command": "node --test test/install.test.mjs test/native-packaging.test.mjs",
+      "passed": 4,
+      "note": "Final bounded snapshot and generated installer formatting."
+    },
+    {
+      "platform": "linux-arm64",
+      "node": "26.8.1",
+      "execution": "ARM64 virtual machine",
+      "passed": 31,
+      "note": "Installation and Node conformance; before bounded snapshot refinement."
+    },
+    {
+      "platform": "linux-x64",
+      "node": "24.21.0",
+      "execution": "QEMU on ARM64",
+      "passed": 31,
+      "note": "Installation and Node conformance; before bounded snapshot refinement."
+    },
+    {
+      "platform": "linux-x64",
+      "node": "24.21.0",
+      "execution": "QEMU on ARM64",
+      "command": "node --test test/install.test.mjs",
+      "passed": 2,
+      "note": "Fresh npm archives and bounded snapshot refinement; excludes subsequent formatting-only installer emission change."
+    }
+  ],
+  "installationCases": [
+    "prebuilt",
+    "forced source",
+    "missing prebuilt",
+    "scripts disabled with missing artifact",
+    "compiler removed before command execution",
+    "failure and cancellation cleanup",
+    "prior valid receipt preserved on failure",
+    "local artifacts excluded from npm repacking"
+  ],
+  "pending": [
+    "Native macOS x64 execution",
+    "Native Linux x64 execution",
+    "Complete Node 22/24/26 platform matrix after these changes",
+    "Canon documentation diagnostics and human review",
+    "npm publication authentication",
+    "LawSpec application acceptance and full application port"
+  ]
+}

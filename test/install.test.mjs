@@ -50,9 +50,6 @@ test(
   {
     const options = await fixture(t);
     const directory = fileURLToPath(options.directory);
-    const sdk = JSON.parse(
-      await readFile(path.join(root, 'dist/packages.json'), 'utf8'),
-    );
     const application = path.join(directory, 'application');
     await mkdir(application);
     for (const file of ['manifest.json', 'component.wasm'])
@@ -89,6 +86,11 @@ test(
           )
         ).stdout,
       )[0].filename;
+    const sdkArchive = path.join(directory, await pack(root));
+    const helperArchive = path.join(
+      directory,
+      await pack(path.join(root, 'platforms', platform)),
+    );
     const appArchive = path.join(directory, await pack(application));
     const nativeArchive = path.join(
       directory,
@@ -115,8 +117,8 @@ test(
           '--no-audit',
           '--no-fund',
           ...(mode === 'ignore-scripts' ? ['--ignore-scripts'] : []),
-          path.join(root, 'dist', sdk.runtime.file),
-          path.join(root, 'dist', sdk.platforms[platform].file),
+          sdkArchive,
+          helperArchive,
           ...(mode === 'prebuilt' || mode === 'source' ? [nativeArchive] : []),
           appArchive,
         ],
