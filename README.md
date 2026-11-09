@@ -8,14 +8,15 @@ contract. Application-specific adapters live in their consuming repositories.
 
 ## Release status
 
-The repository is public development work. npm publication and release tags are
-pending: the revised installation lifecycle still needs the supported platform
-and Node acceptance matrix, including native macOS/Linux x64 execution. Existing
-acceptance JSON files record earlier runs; they do not certify subsequent changes.
-Canon validation still reports missing or unattached canonical comments;
-mandatory definition validation passes, while optional law verification is not
-selected. Human Canon review remains pending. See `DEC-wpk-installation-preparation` for the
-owner-approved name and installation contract.
+Version 0.2.0 is released to npm under the owner's 9 November 2026 decision
+(`DEC-wpk-release-acceptance`). macOS and Linux ARM64 have recorded native
+execution. Linux x64 is accepted on the installation lifecycle executed under
+x64 emulation; native x64 hardware has not been recorded. **macOS x64 is
+cross-built and unverified: no execution has been recorded on that platform.**
+Existing acceptance JSON files record the runs they name; they do not certify
+other platforms or later changes. Mandatory definition validation passes, while
+optional law verification is not selected. Human Canon review remains pending.
+See `DEC-wpk-installation-preparation` for the installation contract.
 
 The npm lifecycle tests verify prebuilt installation, forced source preparation,
 missing-prebuilt preparation, failure cleanup and execution with the compiler
@@ -28,9 +29,9 @@ removed. They do not establish full consumer application acceptance.
 - `wasm-platform-kit-build`: generation, packaging, WIT and Haskell support sources.
 
 The runtime tarball contains no compiler application, malicious fixtures or build
-tools. Package versions are currently local development versions, unpublished.
-Platform packages target macOS and glibc Linux on x64 and ARM64. Each target
-requires execution acceptance; a cross-build alone is insufficient. Native
+tools.
+Platform packages target macOS and glibc Linux on x64 and ARM64. A cross-build
+alone is not execution evidence; the release status above names what has run. Native
 Windows and musl are unsupported; Windows users can use WSL. Consumers need no
 Haskell or Rust compiler.
 
