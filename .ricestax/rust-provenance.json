@@ -1,0 +1,8 @@
+{
+  "source": "Canon Rust grammar copied from the LawSpec development checkout on 2026-11-04; upstream provenance and licensing are retained in the grammar files",
+  "files": {
+    ".ricestax/grammars/rust/RustLexer.g4": "ba641098c298c4dc04e5b541bbbd16ee74fb6c963e666bfa19f1ab4e6d02a1c5",
+    ".ricestax/grammars/rust/RustParser.g4": "73d1e8f6d2346b55130f3ae3a149887e80754ed981f3df9a82ecb0573be949df",
+    ".ricestax/grammars/rust/README.md": "a625483f90b6c1c40efeba675c0436673c59126a9df065df37e4016469c4b71f"
+  }
+}

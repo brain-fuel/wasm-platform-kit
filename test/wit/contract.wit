@@ -1,0 +1,37 @@
+package host:contract@0.2.0;
+interface application {
+  use host:sdk/host@0.2.0.{error, request as host-request};
+  resource snapshot {
+    constructor(value: list<string>);
+    from-one: static func(value: string) -> snapshot;
+    read: func(start: u32, count: u32) -> list<string>;
+    size: func() -> u32;
+  }
+  reject: func(message: string) -> result<_, string>;
+  remember: func(value: borrow<snapshot>);
+  remembered-size: func() -> u32;
+  consume: func(value: snapshot) -> u32;
+  destroyed: func() -> u32;
+  record item { name: string, value: string }
+  record payload { items: list<item>, enabled: bool }
+  record integers { a: u8, b: s8, c: u16, d: s16, e: u32, f: s32, g: u64, h: s64 }
+  variant number { small(u32), large(u64), negative(s64) }
+  record scalar-payload { integers: integers, numbers: list<number>, bytes: list<u8>, optional: option<s64> }
+  variant reply { ok(u64), err(string) }
+  reply-value: func(value: reply) -> reply;
+  type scalar-answer = result<u64, error>;
+  type alias-answer = scalar-answer;
+  answer: func(value: u64) -> alias-answer;
+  record large-request { first: scalar-payload, second: scalar-payload, note: string }
+  large: func(value: large-request) -> result<large-request, error>;
+  scalars: func(value: scalar-payload) -> result<scalar-payload, error>;
+  scalar: func(value: u64) -> u64;
+  nothing: func();
+  round-trip: func(value: payload) -> result<payload, error>;
+  echo: func(value: string) -> result<string, error>;
+  exercise: func(provider: string, request: host-request) -> result<string, error>;
+}
+world contract {
+  import host:sdk/host@0.2.0;
+  export application;
+}

@@ -1,0 +1,54 @@
+component-canonical-abi:
+  kind: article
+  title: "WebAssembly Component Model: canonical ABI"
+  locator: https://github.com/WebAssembly/component-model/blob/main/design/mvp/CanonicalABI.md
+
+wit-bindgen-haskell:
+  kind: article
+  title: "wit-bindgen: Haskell language support issue 943"
+  locator: https://github.com/bytecodealliance/wit-bindgen/issues/943
+
+ghc-wasm:
+  kind: package
+  title: ghc-wasm-meta, the GHC WebAssembly backend toolchain
+  locator: https://gitlab.haskell.org/haskell-wasm/ghc-wasm-meta
+
+wasmtime-security:
+  kind: article
+  title: "Wasmtime sandbox security"
+  locator: https://docs.wasmtime.dev/security.html
+
+wasi-capabilities:
+  kind: article
+  title: "WASI capability security"
+  locator: https://wasi.dev/security
+
+jco-transpiling:
+  kind: article
+  title: "jco transpiling and explicit instantiation"
+  locator: https://bytecodealliance.github.io/jco/transpiling.html
+
+cap-std:
+  kind: article
+  title: "cap-std directory capabilities"
+  locator: https://docs.rs/cap-std/latest/cap_std/fs/struct.Dir.html
+
+REQ-host-sdk-runtime-boundary:
+  kind: requirement
+  title: Typed components execute only with embedding-owned capabilities and explicit bounded failure outcomes.
+  locator: README.md
+
+npm-platform-packages:
+  kind: article
+  title: npm package platform constraints and optional dependencies
+  locator: https://docs.npmjs.com/cli/configuring-npm/package-json/
+
+node-linux-baseline:
+  kind: article
+  title: Node.js supported GNU/Linux architectures and glibc baseline
+  locator: https://github.com/nodejs/node/blob/v22.x/BUILDING.md#platform-list
+
+cargo-zigbuild:
+  kind: article
+  title: Cargo Zigbuild explicit glibc targets and verification caveats
+  locator: https://github.com/rust-cross/cargo-zigbuild#specify-glibc-version

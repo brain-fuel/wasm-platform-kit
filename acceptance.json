@@ -1,0 +1,164 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-11-04T17:58:19.782Z",
+  "sdk": "0.1.0",
+  "evidenceKind": "scoped execution tests",
+  "environment": {
+    "platform": "darwin",
+    "arch": "arm64",
+    "node": "v26.8.1",
+    "browsers": {
+      "chromium": "153.0.8010.12",
+      "firefox": "155.0",
+      "webkit": "26.6"
+    },
+    "webkitProfile": "persistent for OPFS"
+  },
+  "sourceFingerprint": "744c33e9cdb8a22d1a5b7ab7fea8f61b6d1e6d69219477b110f4deb6869435c8",
+  "sources": {
+    ".gitignore": "9767714d8c2344ac5e96c742135262f6bb93cf1645da741276a64e40d0f7c96d",
+    ".ricestax/CANON-LICENSE": "a4d8c9364f503c154e5a2b6423951f8b962f8d9eb4a6c4ee5bc619895c9e3aaa",
+    ".ricestax/grammars/antlr4/canonically_commented/ANTLRv4Lexer.g4": "201dadd5d3c7ffcaa3048596c55e4596d6e2554f5071a31df61a6be079fac8e3",
+    ".ricestax/grammars/antlr4/canonically_commented/ANTLRv4Parser.g4": "80e4327011078db124536ccb589a0c0fdeda4a51a38d63e0b67101b33a677287",
+    ".ricestax/grammars/calm/Calm.g4": "201fcfb2ca4cd7479608482b14d2d22b82ed29fc93b3ee3dc55f2edcc37c0d6b",
+    ".ricestax/grammars/folio/FolioLexer.g4": "0dfdc17b5536c92d50a4afd386af240b1f3bc34aa8ae3f3bd190d55c2487f128",
+    ".ricestax/grammars/folio/FolioParser.g4": "4ffc1d343480e4b44d159369076856728fdb3892ad39e6964a5e64d4162c3619",
+    ".ricestax/grammars/golang/GoLexer.g4": "f97d4dcf1b219cf45788d0be0963ca84a1f57337bbd58dc70f08b152649a29f6",
+    ".ricestax/grammars/golang/GoParser.g4": "b0306f3c9b003dbf503c956aa917a9f574bd3e33a0d90ae6edf1f5bf2951a175",
+    ".ricestax/grammars/haskell/canonically_commented/HaskellLexer.g4": "1e8ace93ba622c6d5fcb741d4dbf8bf4ab112c761d65b1f1c895e13370bccf5e",
+    ".ricestax/grammars/haskell/canonically_commented/HaskellParser.g4": "5306d73542fd0a1179f334cd508fc08bde1ce0a59f36ba76f84e17e7f85f4b9b",
+    ".ricestax/grammars/java/canonically_commented/JavaLexer.g4": "4a311ae4e4ca7c4f16b921533884281ce3359780c55bfaac25acbd02ec845077",
+    ".ricestax/grammars/java/canonically_commented/JavaParser.g4": "a3d0dd219574b4ee91f4322b3b405a250378aad73b88a049cf6a3b56b1051982",
+    ".ricestax/grammars/javascript/JavaScriptLexer.g4": "01c0cca505e7e043fabfc2e001af3a5dfe4880227fc6171e191d3fb2cc8b7c75",
+    ".ricestax/grammars/javascript/JavaScriptParser.g4": "abef372a7841a61dfdc53133da5620eed26f1df64439cb821465acb85e578100",
+    ".ricestax/grammars/kotlin/KotlinLexer.g4": "1304c0ae794da9dab40781845f8b1cc9cf0cd6a80e21857a01743091dd23b099",
+    ".ricestax/grammars/kotlin/KotlinParser.g4": "e70613abd7655732cda7a967c28e043313f47c4ea42dd1a209045bc60064782a",
+    ".ricestax/grammars/kotlin/LICENSE": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1",
+    ".ricestax/grammars/kotlin/UnicodeClasses.g4": "7a4a06ef024c52d0b463687519c77b11d2db1d8906ea2bfc679ff7f150f92ea1",
+    ".ricestax/grammars/python/Python3Lexer.g4": "58c4dfa0b12dfb856b7348b99199bf1a3fdc7901d7fc4575ddf9584aeb831c19",
+    ".ricestax/grammars/python/Python3Parser.g4": "e453bdcec77292575ce13ed98ff8c0f34e456de1f84d5ed47f7b42c0a063402d",
+    ".ricestax/grammars/rust/README.md": "a625483f90b6c1c40efeba675c0436673c59126a9df065df37e4016469c4b71f",
+    ".ricestax/grammars/rust/RustLexer.g4": "ba641098c298c4dc04e5b541bbbd16ee74fb6c963e666bfa19f1ab4e6d02a1c5",
+    ".ricestax/grammars/rust/RustParser.g4": "73d1e8f6d2346b55130f3ae3a149887e80754ed981f3df9a82ecb0573be949df",
+    ".ricestax/grammars/typescript/TypeScriptLexer.g4": "77c9e5d8ed4ee0c2df86cd69682d44e6d1094b149b37d47531f157ba63e7ae37",
+    ".ricestax/grammars/typescript/TypeScriptParser.g4": "0868fad2543b287685e780b26b57ee85ae160a2de0d23b93cf5b530ebb6fef6a",
+    ".ricestax/languages.json": "d11df6ac151074dd5a771f74eda7f3840788c44153143d6d9f296ea6f9819e49",
+    ".ricestax/provenance.json": "8381563d2bde82205699afc8c81c38878fb95be5ffba0427c16ea5454922cef5",
+    ".ricestax/rust-provenance.json": "c3acd9d2e2f9b5b8860a18d44c8615dc6d0df04eab62c33bd73ae3dc49c1b88d",
+    "AGENTS.md": "77b7ef11d73572df1fda6918526592c9566c1e8f401ded11f34e67b5c130397a",
+    "Cargo.lock": "7420933515129f855b8fcca07536537458bbfa2900b477538c7297d296ca8a63",
+    "Cargo.toml": "723eb9be023f4690aef986494b2b28503985a540ce94c4bac6ac4afc3e44b6d0",
+    "LICENSE": "a4d8c9364f503c154e5a2b6423951f8b962f8d9eb4a6c4ee5bc619895c9e3aaa",
+    "README.md": "eb1266068fc1a69de93965c19e490c5541e2a1143a02514fd05701f2cd069dc3",
+    "browser.mjs": "b684faf9aa9a190f6e62df29ab662181c06adad41c48566e5510e718ffb82c2a",
+    "canon.yaml": "702fa2f55e5d60dbac8703c1ecbcc34b30f292da1cd8b26802d31ea2eac0a0e1",
+    "canonical_decisions.yaml": "dd854317efc6cef40bd7487277c8021b98470b78369cdbbb842fc111007c05a9",
+    "canonical_refs.yaml": "e2d2a8989ecfde8716cbc07e2bc1b1714b89ad5123f2b9c30e0b3474903b4d68",
+    "generator/Cargo.toml": "9fc1f91a390bf05e491b0574fc37269413445b5664b1b44bf2aa5ac0dc3056c6",
+    "generator/src/budget.rs": "3944df871b81e05c817e7171090993c39c0797c3bc21389feca515d9f5fe5bc3",
+    "generator/src/main.rs": "04600878b7c6cc9c7792f338673110ceb455a50d8a859688105e53e794013d8e",
+    "guest/Cargo.toml": "d0200b5ee19dc5b220043ec6788252063ba9d03c96e298080fd9dd4959d0b837",
+    "guest/src/lib.rs": "fac603d8d63b6bcc9033945aaf5f5fb9eb58666e414790e07349cca1bae93c2f",
+    "haskell/HostSDK/Canonical.hs": "7e7a85c8aaef198c4407d33ad11dc507250cb6eee61c7b5df48dd83b3d1c7bd7",
+    "haskell/LICENSE": "a4d8c9364f503c154e5a2b6423951f8b962f8d9eb4a6c4ee5bc619895c9e3aaa",
+    "haskell/host-sdk-guest.cabal": "fc5df184dc510414aa015ca0f2dc3410832a6fc60f123bf98f19e8dded287832",
+    "helper/Cargo.toml": "a51d0d0f2c52d3bcb9ff7c00678642bb7bc935195ba1f081511c86a64c475814",
+    "helper/src/main.rs": "5b50f0891a5f0bc56bf3d8de2b96c4d28963fe0d8f0fc3f48f3e1927afb0f989",
+    "index.d.ts": "20dbf0f9ff7ec24768cbecdfafddd538279ed3af9993b7135a35c2e0ddf7060f",
+    "lawspec.edn": "56e764827e604513e568eca2acc79686446a6520e6ea87136bd40ef7bafd9202",
+    "node.mjs": "6d2dbb2031a4546c8c0a9306205a27f107be15d2d5e7583d9de1a9d842b8a2ae",
+    "package-lock.json": "1716ac4972a068e27695eb253a2976aadf7e617bb242b789faa166af82677eda",
+    "package.json": "e2bd0811df798281159303feab42ce3685d4d28d31d6fb1ad6d53538b276705c",
+    "policy.mjs": "8a1bb6c63873d4a2bf1ec627a8cc44aca6857a076ff7784aa9bdf41991e3d579",
+    "rustfmt.toml": "44b70874afbac295c12937c990c94c16e24e201d471ce1220ad5f96a81c7a60d",
+    "spec/authority.lawspec": "5118fd927ab90d5493beaed3088e037694da374f78c2aa48b8b9cae8f4188a70",
+    "test/browser.test.mjs": "29998e975a8a25ae3fcfd9762e66100ab515a9bbe37dd7f62d8df04539db55d5",
+    "test/fixtures/Application.hs": "3265e9715c7382de96010196f7f30839814b3aff7946b911ab0efd02aa7f2229",
+    "test/generator.test.mjs": "967cee9559a2beba3d55f0a44b641bcb1f5d6ee79178fe70c319b43957d40512",
+    "test/node.test.mjs": "b2f11d77d1fb96cbdc2b9e40e852ebfee4ad214292082c3e9aeb19a3a717dd76",
+    "test/package.test.mjs": "f3708cab51ad780c059ad60d0bf505e1fab42fe8374933684c28cab61f4786a0",
+    "test/wit/contract.wit": "303aa435c4ecaff5e1603f4d9f0f076f652c26a0fd6942652aa24959290f3b7c",
+    "test/wit/deps/host/host.wit": "c7c4472ceaf21b37d9bd611f918f9fa8161cbe08bae18ff79575c5a472674d0c",
+    "tools/build.mjs": "fcc4cec5978a42006b12f0164fe4f9f594258f6cd298d337e847f258515943e5",
+    "tools/component.mjs": "2069f51689d68732535b086e6e21ec01f687182ca75e15fe5b97819b38e3b4e9",
+    "tools/generate.mjs": "904b12f31b752d3883d4bf1b7933066373740cceaf0deecd5bc2d849e3d4e8f7",
+    "tools/index.mjs": "7ae29c2dbcd90be86973506e98a03bb20ede5e39d2bcbe31d12906ae92bc7aca",
+    "tools/pack.mjs": "85d203b7cdc5184e9e42d354bf856cb2c0879ec7808f1c8c67d3b6a451ac0f0f",
+    "tools/paths.mjs": "c982e54ba93b6605dfa338758e86732e9645f7cfa7fe659ad8f96cea03c91d94",
+    "tools/style.mjs": "8e0d89982727785c10b6b7ff59b166760be06e50944d2e27d420f4f41b0a0b3a",
+    "wit/host.wit": "c7c4472ceaf21b37d9bd611f918f9fa8161cbe08bae18ff79575c5a472674d0c",
+    "worker.mjs": "04bb3738645395b99e74f84e2020d0ae1eee61263fa2cf2fc6c4313c6fa144e4"
+  },
+  "identity": {
+    "artifact": "289f884ebf78bff698ab31e754ae5ab3787ea4af257f4515523ba226d741007e",
+    "ready": true,
+    "runtime": "wasmtime-50.0.1:7231641cf21095f1a310eeb4c62a5487360cfa2a0b78d82a1ac3bdf78823e0d4",
+    "provider": "612c09e3674d20b634a14ed7e82d4f3dd0f874700074e4619e0b0ac051adee8e",
+    "policy": "29c8e4e311da4988986bac172ec94c9d1560ed47e5190869f8039def3245172a",
+    "interface": "host:contract/application@0.1.0"
+  },
+  "packages": {
+    "platform": {
+      "file": "lawspec-host-sdk-darwin-arm64-0.1.0.tgz",
+      "integrity": "sha512-O1WOB3k6t154nVGYOmr2lZJFQWUVaawUN3IDRMicmbeDBpoS3gXt0NEx6xZ8tYCwnxnWDTxOT4gMrTqch9hWng==",
+      "shasum": "0a35e2fe2c3235bf4f601433d8a32999d947c1dd"
+    },
+    "runtime": {
+      "file": "lawspec-host-sdk-0.1.0.tgz",
+      "integrity": "sha512-PWoXCkda0/zee++c3VFbC+tDNTaW65o51Bz7pJlPqJ6+/95aPBcLFgxfSXVRjuS5j4wmp0ogUeMtxnK1I4ZDbg==",
+      "shasum": "0f74279d1600cff7e63a1536915cd4052f3dddaf"
+    },
+    "build": {
+      "file": "lawspec-host-sdk-build-0.1.0.tgz",
+      "integrity": "sha512-P9mMtsh1V21jt1f7qpP/xuI9k6i51eBsChr583hI5uitrxfIFGIyX3SVoa1Fo7iy5sh8dYYOp3Sxy/piOtSs5w==",
+      "shasum": "5a30726f4a961266af589540dd73527e0dd93905"
+    }
+  },
+  "checks": [
+    {
+      "command": "npm run build",
+      "status": "passed"
+    },
+    {
+      "command": "npm test",
+      "status": "passed",
+      "passed": 16,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "command": "tsc --noEmit --strict --module nodenext --moduleResolution nodenext --target es2022 index.d.ts",
+      "status": "passed"
+    },
+    {
+      "command": "cargo +nightly-2026-10-22 fmt --all -- --check",
+      "status": "passed"
+    },
+    {
+      "command": "pinned Prettier/Allman comparison of all 16 first-party JS/TS files",
+      "status": "passed"
+    },
+    {
+      "command": "lawspec project status --project .",
+      "status": "passed"
+    },
+    {
+      "command": "lawspec project validate --project .",
+      "status": "failed",
+      "definitions": {
+        "status": "passed",
+        "diagnostics": []
+      },
+      "verification": "not-verified",
+      "canon": "failed"
+    }
+  ],
+  "limitations": [
+    "Development preview; not published",
+    "Only macOS ARM64 prebuilt runtime accepted",
+    "Canon comments/provenance unresolved; human review pending",
+    "Abstract policy laws are not verified",
+    "Browser file-picker consent not automated; WebKit OPFS uses persistent profile"
+  ],
+  "logs": ".artifacts/acceptance/"
+}

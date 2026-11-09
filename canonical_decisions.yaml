@@ -1,0 +1,164 @@
+DEC-host-sdk-direct-haskell:
+  status: decided
+  question: How can independently packaged Haskell applications share a typed, capability-scoped Node and browser host?
+  answer: |
+    The owner's reusable host SDK plan selects WIT and the WebAssembly Component Model, a prebuilt Wasmtime helper for Node and host-generated jco glue in browser workers. The subsequent explicit direction replaces the proposed wit-bindgen C bridge with direct WIT-to-Haskell generation. Reuse upstream wit-parser for resolution, canonical sizes, offsets and function signatures, wasm-tools for component encoding and the upstream preview1 adapter, Wasmtime for Node execution, and preview2-shim for browser WASI. Emit Haskell ADTs and typed operations directly. Raw scalar foreign declarations use GHC's core Wasm calling convention; GHC and libc remain runtime dependencies, but no authored C bridge or wit-bindgen C output implements this boundary. Memory32 integer lanes, records, enums, variants, lists, options, results and imported resources are the initial supported subset. Other features and ambiguous generated names fail explicitly. The generator, its Haskell allocation/lifting/post-return support and initialization shim are new trusted code, not a proved compiler or an upstream Haskell backend. Resource scopes use bracket plus runtime handle validation; no static lifetime proof is claimed.
+
+    Applications grant authority; guest declarations never grant it. Grants are immutable per instance and revocation terminates its process or worker. Raw WASI receives no inherited application environment, preopens, stdio or socket authority. Named broker resources mediate selected file handles, network destinations and operations, scoped storage quotas, explicit environment values, isolated UI surfaces and validated native callbacks. cap-std supplies native path confinement including symlink races; browser handles remain in the page broker. Redirects cannot expand network grants. Explicit trustedJavaScript, trustedDOM, trustedNativeFFI and trustedProcess providers require the trusted profile and are rejected in the hostile profile. These callbacks are embedding-application code and remain outside guest isolation. Server authorization and browser consent remain independent requirements.
+
+    Host-generated artifact registration is mandatory before browser JavaScript loading, in both the page loader and worker. A self-authored plugin manifest plus hashes is insufficient. Only a trusted build transforms plugin Wasm into jco glue and adds its manifest digest to the application registry. Enforce guest memory/table limits, request/output bounds and execution deadlines; Node also meters fuel. Browser build instrumentation records failed memory.grow operations in a newly appended, guest-inaccessible global so exhaustion is not guessed from trap text. This instrumentation is part of the SDK trust boundary and uses upstream binary parsers, encoders and validators. Browser profiles require JSPI, workers, WebCrypto and a secure context; optional isolation headers are deployment requirements rather than authority. Missing features fail without downgrade.
+
+    The LawSpec formatting pilot remains separate from reusable runtime/provider decisions and calls the existing Haskell dispatcher with mandatory checked formatting by default and explicit syntax-only formatting. It preserves diagnostic locations and prevents writes after diagnostic failures. Existing CLI, SDK, Learn and editor APIs stay operational. Rust exercises the same host contract; it does not claim to format LawSpec. Record runtime, provider, artifact and policy identities with execution. Automated tests establish scoped execution evidence, not proof or human security review. Publishing, additional platform release artifacts, Wavelet integration and remaining first-party migrations are subsequent stages. Stop production cutover if Haskell integration, browser compatibility or containment fails.
+  opened: 0.31.3
+  decided: 0.31.3
+  refs: [component-canonical-abi, wit-bindgen-haskell, ghc-wasm, wasmtime-security, wasi-capabilities, jco-transpiling, cap-std]
+
+DEC-host-sdk-independent-repository:
+  status: decided
+  question: Who owns reusable runtime code and application integration during development?
+  answer: |
+    The owner requested a separate SDK repository immediately. This repository owns
+    runtime integration, capability providers, WIT-to-Haskell generation and generic
+    tests. Consumers own application WIT, adapters, registration and parity tests.
+    Package generation writes only to the caller-selected output. Development uses
+    packed npm artifacts, not source-directory imports. Publication and production
+    cutover remain separate actions. The preceding decision is imported provenance
+    from the LawSpec pilot; no human review approval is inferred.
+  opened: 0.1.0
+  decided: 0.1.0
+  refs: [component-canonical-abi, wasmtime-security, wasi-capabilities]
+
+DEC-host-sdk-typed-application-boundary:
+  status: decided
+  question: How can independent applications expose large typed results and integer identities without JSON dispatch?
+  answer: |
+    SDK 0.2.0 extends the existing direct Haskell backend using upstream WIT
+    resource ownership and wit-parser's canonical layouts. Support all signed
+    and unsigned integer widths, ByteString-backed byte lists, scalar and void
+    returns, indirect parameter tuples and exported resource constructors,
+    methods, static functions and destructors. Keep unsupported features explicit.
+    A consumer defines its resource state and destructor in ResourceTypes; the
+    generated modules expose opaque typed constructors, readers and brackets.
+    StablePtr retains application state. Dynamic borrow epochs and consumed-owner
+    flags reject retained borrows and repeated transfers. These checks, the FFI
+    and codecs are trusted runtime code, not a static lifetime proof. Resource
+    drop uses GHC's safe-call convention because a destructor can re-enter Haskell.
+
+    Generate asynchronous JavaScript façades and declarations from resolved WIT.
+    Node transports 64-bit integers as decimal markers with width checks, never
+    through JavaScript Number. The marker uses a field that cannot be a WIT
+    identifier; it is an internal scalar codec, not an application value envelope.
+    Keep exported resource instances inside Wasmtime stores or browser workers;
+    embedding clients see opaque, instance-bound handles and explicit disposal.
+    Bulk readers copy typed values. Ownership transfer removes the old handle;
+    resource IDs are not recycled. A resource cannot grant a host capability.
+    The trusted build embeds the public schema and uses it to select canonical
+    operations, including distinguishing a result from a similarly tagged variant.
+
+    The independent Haskell and Rust fixtures, negative controls, generated-type
+    checks and browser suites are scoped execution evidence. They do not establish
+    the completeness of any consuming application's port, or acceptance on
+    unexecuted native platforms. Haskell policy emission, broader host facilities,
+    separate UI/job lifecycles and additional consumer migrations remain work.
+    No release publication, Git tag, additional guest-language implementation or
+    human vetting is authorized by this increment.
+  opened: 0.2.0
+  decided: 0.2.0
+  refs: [component-canonical-abi, wit-bindgen-haskell, ghc-wasm, wasmtime-security, jco-transpiling]
+
+DEC-host-sdk-precompiled-node:
+  status: decided
+  question: How does Node execute precompiled components without trusting guest-supplied native code?
+  answer: |
+    The owner selects trusted precompiled Node artifacts with an explicit source
+    build option. A trusted build emits a separate executable registration binding
+    the original component digest, native artifact digest, pinned Wasmtime settings
+    and native target. Guest manifests cannot supply this authority. Default Node
+    loading requires that registration and an execution-only helper. Missing,
+    corrupted or incompatible artifacts fail without implicit source compilation.
+    Explicit source mode selects a compiler-enabled helper and validates portable
+    Wasm normally. Repository source builds remain available without downloading
+    application native artifacts. An explicit target disables host-specific CPU
+    feature inference; native platform execution remains an acceptance gate.
+
+    Verify bounded input while copying into an already-unlinked private file, then
+    deserialize only that immutable snapshot. This prevents source pathname or
+    in-place mutation races between hashing and native-code mapping. Wasmtime's
+    unsafe deserialization relies on trusted compiler provenance as well as digest
+    integrity; arbitrary self-hashed bytes are not authorized. Native artifact,
+    configuration and compilation mode join execution identity. Fuel, capability
+    denial and job cleanup remain unchanged. Browser compilation is independent.
+    Publication, platform acceptance and human vetting are not inferred.
+  opened: 0.2.0
+  decided: 0.2.0
+  refs: [wasmtime-security]
+
+DEC-host-sdk-native-platform-packaging:
+  status: decided
+  question: How do native artifacts cover supported platforms without installing every target's machine code?
+  answer: |
+    The embedding build verifies native compiler receipts against the component,
+    target, engine configuration and actual native bytes, then emits optional
+    npm packages constrained by OS, CPU and glibc. The trusted application package
+    retains each target's digest registration. Runtime selection resolves only
+    the executing platform's native package. Explicit source mode never resolves
+    optional native-artifact packages. No install script downloads or compiles
+    executable code. Separate native helper builds require Rust only; application
+    Haskell compilation remains in the application's source build.
+
+    Compilation and packing are not platform acceptance. Execute conformance on
+    each claimed platform, label emulation accurately, and leave unsupported or
+    unexecuted combinations explicit. Artifact integrity cannot substitute for
+    trusted build provenance. No publication or human vetting is inferred.
+  opened: 0.2.0
+  decided: 0.2.0
+  refs: [wasmtime-security, npm-platform-packages]
+
+DEC-host-sdk-linux-abi-baseline:
+  status: decided
+  question: How do native helper packages preserve the Linux baseline of supported Node versions?
+  answer: |
+    Linux x64 and ARM64 helpers target glibc 2.28, matching the GNU/Linux baseline
+    of Node 22, 24 and 26. Build with upstream Cargo Zigbuild and Zig's explicit
+    glibc target rather than inheriting the builder distribution's newer ABI.
+    Inspect actual ELF version requirements with LLVM or binutils before staging;
+    reject higher or unrecognized glibc requirements. Cross-compilation and header
+    inspection do not substitute for execution acceptance.
+
+    This clarifies the build toolchain in DEC-host-sdk-native-platform-packaging:
+    Linux helper rebuilds need Rust plus build-only Zig/linker and inspection tools,
+    but not the Haskell application toolchain. Consumer installations need none
+    of those tools. Runtime execution deadlines, capability policy and source-mode
+    selection remain unchanged. Human review and publication are not inferred.
+  opened: 0.2.0
+  decided: 0.2.0
+  refs: [node-linux-baseline, cargo-zigbuild]
+
+DEC-wpk-installation-preparation:
+  status: decided
+  question: What name and installation contract does the independent platform SDK expose?
+  answer: |
+    The owner selected Wasm Platform Kit, wasm-platform-kit npm package names,
+    and the public brain-fuel/wasm-platform-kit Git repository. This supersedes
+    the unpublished @lawspec/host-sdk package names. Existing native format,
+    helper executable and historical decision identifiers remain stable; these
+    identify the 0.2.0 ABI rather than the public project name.
+
+    Installation must prepare every artifact needed for execution. Generated
+    installation bootstraps verify approved prebuilt artifacts or compile the
+    pinned portable component using the shipped compiler helper. Explicit
+    WASM_PLATFORM_KIT_BUILD_FROM_SOURCE=1 forces compilation at installation.
+    Runtime source compilation is rejected, including explicit source requests.
+    A skipped lifecycle with no usable prebuilt artifact requires npm rebuild.
+    Installation has a separate bounded 15-minute compilation deadline and
+    atomic receipt publication; guest execution limits remain unchanged.
+    Failed rebuilding preserves an existing valid installation. Package-local
+    receipts are trusted embedding state, never authority granted by a guest.
+
+    The owner authorized pushing and tagging the repositories. Publication
+    still requires successful acceptance and authenticated registry access;
+    this decision does not supply missing platform evidence or human vetting.
+    It supersedes runtime source selection in DEC-host-sdk-precompiled-node.
+  opened: 0.2.0
+  decided: 0.2.0
+  refs: [wasmtime-security, npm-platform-packages]

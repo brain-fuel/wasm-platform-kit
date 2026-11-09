@@ -1,0 +1,11 @@
+[package]
+name = "host-sdk-contract-guest"
+version = "0.2.0"
+edition = "2024"
+license = "MIT"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+wit-bindgen = "=0.63.0"

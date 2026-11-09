@@ -1,0 +1,8 @@
+{
+  "package": "ricestax",
+  "profiles": [
+    "haskell",
+    "javascript",
+    "typescript"
+  ]
+}

@@ -1,0 +1,24 @@
+package host:sdk@0.2.0;
+
+// ref:DEC-host-sdk-direct-haskell
+interface host {
+  enum status { denied, unsupported, cancelled, exhausted, failed }
+  record error { code: status, message: string }
+  resource provider;
+  variant request {
+    read-text(string),
+    write-text(write-request),
+    fetch(fetch-request),
+    get-value(string),
+    put-value(write-request),
+    render(string),
+    invoke(string),
+  }
+  record write-request { key: string, value: string }
+  enum method { get, post }
+  record fetch-request { url: string, method: method, body: string }
+  acquire: func(name: string) -> result<provider, error>;
+  perform: func(provider: borrow<provider>, request: request) -> result<string, error>;
+}
+
+world embedding { import host; }

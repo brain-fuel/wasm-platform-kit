@@ -1,0 +1,221 @@
+{
+  "version": "0.2.0",
+  "ignore": [
+    ".artifacts",
+    ".ricestax",
+    "node_modules",
+    "target",
+    "build",
+    "dist",
+    ".venv",
+    "__pycache__",
+    "assets",
+    "generated",
+    "platforms",
+    "packages"
+  ],
+  "languages": {
+    "haskell": {
+      "extensions": [
+        ".hs"
+      ],
+      "lexer": ".ricestax/grammars/haskell/canonically_commented/HaskellLexer.g4",
+      "parser": ".ricestax/grammars/haskell/canonically_commented/HaskellParser.g4",
+      "start": "module"
+    },
+    "javascript": {
+      "extensions": [
+        ".js",
+        ".mjs",
+        ".cjs"
+      ],
+      "lexer": ".ricestax/grammars/javascript/JavaScriptLexer.g4",
+      "parser": ".ricestax/grammars/javascript/JavaScriptParser.g4",
+      "start": "program",
+      "comments": {
+        "line": "//",
+        "blockOpen": "/*",
+        "blockClose": "*/",
+        "strings": [
+          "\"",
+          "'",
+          "`"
+        ]
+      },
+      "units": [
+        {
+          "rule": "functionDeclaration",
+          "kind": "function",
+          "name": {
+            "rule": "identifier"
+          },
+          "required": true
+        },
+        {
+          "rule": "classDeclaration",
+          "kind": "class",
+          "name": {
+            "rule": "identifier"
+          },
+          "required": true
+        },
+        {
+          "rule": "methodDefinition",
+          "kind": "method",
+          "name": {
+            "rule": "classElementName"
+          },
+          "required": true
+        },
+        {
+          "rule": "variableDeclaration",
+          "kind": "binding",
+          "name": {
+            "rule": "assignable"
+          },
+          "required": true
+        }
+      ]
+    },
+    "typescript": {
+      "extensions": [
+        ".ts",
+        ".mts",
+        ".cts"
+      ],
+      "lexer": ".ricestax/grammars/typescript/TypeScriptLexer.g4",
+      "parser": ".ricestax/grammars/typescript/TypeScriptParser.g4",
+      "start": "program",
+      "comments": {
+        "line": "//",
+        "blockOpen": "/*",
+        "blockClose": "*/",
+        "strings": [
+          "\"",
+          "'",
+          "`"
+        ]
+      },
+      "units": [
+        {
+          "rule": "functionDeclaration",
+          "kind": "function",
+          "name": {
+            "rule": "identifier"
+          },
+          "required": true
+        },
+        {
+          "rule": "classDeclaration",
+          "kind": "class",
+          "name": {
+            "rule": "identifier"
+          },
+          "required": true
+        },
+        {
+          "rule": "interfaceDeclaration",
+          "kind": "interface",
+          "name": {
+            "rule": "identifier"
+          },
+          "required": true
+        },
+        {
+          "rule": "typeAliasDeclaration",
+          "kind": "type",
+          "name": {
+            "rule": "identifier"
+          },
+          "required": true
+        },
+        {
+          "rule": "enumDeclaration",
+          "kind": "enum",
+          "name": {
+            "rule": "identifier"
+          },
+          "required": true
+        },
+        {
+          "rule": "propertyMemberDeclaration",
+          "kind": "member",
+          "name": {
+            "rule": "classElementName"
+          },
+          "required": false
+        },
+        {
+          "rule": "variableDeclaration",
+          "kind": "binding",
+          "name": {
+            "rule": "identifierOrKeyWord"
+          },
+          "required": true
+        }
+      ]
+    },
+    "rust": {
+      "extensions": [
+        ".rs"
+      ],
+      "lexer": ".ricestax/grammars/rust/RustLexer.g4",
+      "parser": ".ricestax/grammars/rust/RustParser.g4",
+      "start": "crate",
+      "comments": {
+        "line": "//",
+        "blockOpen": "/*",
+        "blockClose": "*/",
+        "outerDoc": [
+          "///",
+          "/**"
+        ],
+        "innerDoc": [
+          "//!",
+          "/*!"
+        ],
+        "strings": [
+          "\""
+        ]
+      },
+      "units": [
+        {
+          "rule": "function_",
+          "kind": "function",
+          "name": {
+            "rule": "identifier"
+          },
+          "required": false
+        },
+        {
+          "rule": "structStruct",
+          "kind": "struct",
+          "name": {
+            "rule": "identifier"
+          },
+          "required": false
+        },
+        {
+          "rule": "enumeration",
+          "kind": "enum",
+          "name": {
+            "rule": "identifier"
+          },
+          "required": false
+        },
+        {
+          "rule": "typeAlias",
+          "kind": "type",
+          "name": {
+            "rule": "identifier"
+          },
+          "required": false
+        }
+      ]
+    }
+  },
+  "canon": "0.2.3",
+  "registry": "canonical_refs.yaml",
+  "decisions": "canonical_decisions.yaml",
+  "vetting": "canonical_vetting"
+}

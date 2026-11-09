@@ -1,0 +1,27 @@
+{
+  "source": "../canon working tree; grammar files may contain local compatibility changes",
+  "canonCommit": "f639753475aee86048afc6f22019b92b3dde56d8",
+  "files": {
+    "grammars/antlr4/canonically_commented/ANTLRv4Lexer.g4": "201dadd5d3c7ffcaa3048596c55e4596d6e2554f5071a31df61a6be079fac8e3",
+    "grammars/antlr4/canonically_commented/ANTLRv4Parser.g4": "80e4327011078db124536ccb589a0c0fdeda4a51a38d63e0b67101b33a677287",
+    "grammars/calm/Calm.g4": "201fcfb2ca4cd7479608482b14d2d22b82ed29fc93b3ee3dc55f2edcc37c0d6b",
+    "grammars/folio/FolioLexer.g4": "0dfdc17b5536c92d50a4afd386af240b1f3bc34aa8ae3f3bd190d55c2487f128",
+    "grammars/folio/FolioParser.g4": "4ffc1d343480e4b44d159369076856728fdb3892ad39e6964a5e64d4162c3619",
+    "grammars/golang/GoLexer.g4": "f97d4dcf1b219cf45788d0be0963ca84a1f57337bbd58dc70f08b152649a29f6",
+    "grammars/golang/GoParser.g4": "b0306f3c9b003dbf503c956aa917a9f574bd3e33a0d90ae6edf1f5bf2951a175",
+    "grammars/haskell/canonically_commented/HaskellLexer.g4": "1e8ace93ba622c6d5fcb741d4dbf8bf4ab112c761d65b1f1c895e13370bccf5e",
+    "grammars/haskell/canonically_commented/HaskellParser.g4": "5306d73542fd0a1179f334cd508fc08bde1ce0a59f36ba76f84e17e7f85f4b9b",
+    "grammars/java/canonically_commented/JavaLexer.g4": "4a311ae4e4ca7c4f16b921533884281ce3359780c55bfaac25acbd02ec845077",
+    "grammars/java/canonically_commented/JavaParser.g4": "a3d0dd219574b4ee91f4322b3b405a250378aad73b88a049cf6a3b56b1051982",
+    "grammars/javascript/JavaScriptLexer.g4": "01c0cca505e7e043fabfc2e001af3a5dfe4880227fc6171e191d3fb2cc8b7c75",
+    "grammars/javascript/JavaScriptParser.g4": "abef372a7841a61dfdc53133da5620eed26f1df64439cb821465acb85e578100",
+    "grammars/kotlin/KotlinLexer.g4": "1304c0ae794da9dab40781845f8b1cc9cf0cd6a80e21857a01743091dd23b099",
+    "grammars/kotlin/KotlinParser.g4": "e70613abd7655732cda7a967c28e043313f47c4ea42dd1a209045bc60064782a",
+    "grammars/kotlin/LICENSE": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1",
+    "grammars/kotlin/UnicodeClasses.g4": "7a4a06ef024c52d0b463687519c77b11d2db1d8906ea2bfc679ff7f150f92ea1",
+    "grammars/python/Python3Lexer.g4": "58c4dfa0b12dfb856b7348b99199bf1a3fdc7901d7fc4575ddf9584aeb831c19",
+    "grammars/python/Python3Parser.g4": "e453bdcec77292575ce13ed98ff8c0f34e456de1f84d5ed47f7b42c0a063402d",
+    "grammars/typescript/TypeScriptLexer.g4": "77c9e5d8ed4ee0c2df86cd69682d44e6d1094b149b37d47531f157ba63e7ae37",
+    "grammars/typescript/TypeScriptParser.g4": "0868fad2543b287685e780b26b57ee85ae160a2de0d23b93cf5b530ebb6fef6a"
+  }
+}

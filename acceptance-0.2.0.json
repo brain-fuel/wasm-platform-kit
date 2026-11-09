@@ -1,0 +1,216 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-11-04T21:19:07.997067+00:00",
+  "sdk": "0.2.0",
+  "evidenceKind": "scoped execution tests; application port incomplete",
+  "environment": {
+    "platform": "darwin",
+    "arch": "arm64",
+    "node": [
+      "22.23.3",
+      "24.21.0",
+      "26.8.1"
+    ],
+    "browsers": {
+      "chromium": "153.0.8010.12",
+      "firefox": "155.0",
+      "webkit": "26.6"
+    },
+    "webkitProfile": "persistent for OPFS"
+  },
+  "sourceFingerprint": "fe7375135ab5d3b62c02284c2a103ca9854968a3bdfc10568032a3ff2fec5421",
+  "sources": {
+    ".gitignore": "9767714d8c2344ac5e96c742135262f6bb93cf1645da741276a64e40d0f7c96d",
+    "AGENTS.md": "77b7ef11d73572df1fda6918526592c9566c1e8f401ded11f34e67b5c130397a",
+    "Cargo.lock": "0a6ca573e025083dba5fbfc81b18149b837543a54306224c5eac98ad863a6d2c",
+    "Cargo.toml": "723eb9be023f4690aef986494b2b28503985a540ce94c4bac6ac4afc3e44b6d0",
+    "LICENSE": "a4d8c9364f503c154e5a2b6423951f8b962f8d9eb4a6c4ee5bc619895c9e3aaa",
+    "README.md": "b137cc6726af18ac71be9638a050e01b009b19973fff8d847eb5ff08075a312c",
+    "browser.mjs": "38118bb1049cbb501ba74bc54f407c6c91349c9d274d9c026c3b3340c4d20798",
+    "canon.yaml": "c767b65b424b28ee34f6be2588c3a5dbd3e85f42321d44ba95c37e74ac283526",
+    "canonical_decisions.yaml": "77fdfa65d95a55345a30318f8173b34d846d48ba513ceab449a9c2ff53af1bc8",
+    "canonical_refs.yaml": "e2d2a8989ecfde8716cbc07e2bc1b1714b89ad5123f2b9c30e0b3474903b4d68",
+    "client.mjs": "3bb43fbf63b4be25f5949a66cc0193f85e53bbc64650593ea214224857ab5479",
+    "generator/Cargo.toml": "29e991cb0b5a909db9fcbeef6a32b687c4cd937814fb69e19bcccf393c901777",
+    "generator/src/budget.rs": "3944df871b81e05c817e7171090993c39c0797c3bc21389feca515d9f5fe5bc3",
+    "generator/src/main.rs": "cdc2d9e3899b25aa77a3acfd3424d6bb91eba5e8fa4df2368234086a22583d97",
+    "guest/Cargo.toml": "9ea7cd1850bd4ca286f91b132215b9a727007d3390811aeafc2bfd9ff6f2900d",
+    "guest/src/lib.rs": "21f202ad6bda3ce84c01a4dcd1855ca4eb1d0ac91ae6d327689c5f4af0c16952",
+    "haskell/HostSDK/Canonical.hs": "bf4c6feab2020e994f9b5c0e9d36bd23c05504faa655efc9819a11e1452a7140",
+    "haskell/LICENSE": "a4d8c9364f503c154e5a2b6423951f8b962f8d9eb4a6c4ee5bc619895c9e3aaa",
+    "haskell/host-sdk-guest.cabal": "c14c32ace155f543273c6cef34bc7a35a4310aa0e3b2cc33aa3464fb1728fd0b",
+    "helper/Cargo.toml": "fc69884db06938c8168a8bcbd360cfe218ce96593152c70e84c19c98d41f2c75",
+    "helper/src/main.rs": "8ce505b7f36428ed5dfb58d9fc91a07cfbc5eb687b0b45254d7769f2cd48c1bb",
+    "index.d.ts": "b7736e199448825e450ebfceb10af3b2147ce0c45ac03685e7530b172595deef",
+    "lawspec.edn": "4d3b108f5fe38991d584fd80079dad46d625d66f9cf8793a1a3a569932188421",
+    "node.mjs": "1e9226cad11db6a49f16d2df65d5f3317370075a7c0aa11990a35f9cd0893ddf",
+    "package-lock.json": "a8ee45345a0228ae1d9e6916e58c32b068d3953854143eab3707d34eaf32d72b",
+    "package.json": "fb51899c8495243d55c84e28465963e41af5f51adf302be97326ad9736f8288d",
+    "policy.mjs": "defb51c4c01ead60d9573897c51447af6958edfb5d2b2513e71aed82ad842ea3",
+    "rustfmt.toml": "44b70874afbac295c12937c990c94c16e24e201d471ce1220ad5f96a81c7a60d",
+    "spec/authority.lawspec": "5118fd927ab90d5493beaed3088e037694da374f78c2aa48b8b9cae8f4188a70",
+    "test/browser.test.mjs": "71a07f7cb072bbd67b1b37316457e0e077291f0ba50788575df52428bdf8abfe",
+    "test/facade.test.mjs": "f0a0b3ce205820d57fa20d6c98273d50bcef17a175d9b3d219c0ab9d25080b26",
+    "test/fixtures/Application.hs": "fa117937581641901b5ffb7a357b4c5abb5744f1898ba46836fbb9bd29f069b8",
+    "test/fixtures/ResourceTypes.hs": "a5a48af2dfa1ea36685311c2d268bf1e6578d7ced92216f29dfdb6b5e2fb00d3",
+    "test/fixtures/facade.ts": "dbed96b5be1ecf45c9573c514663605ebc2bebb00cd527d2ccb8550d03c10b18",
+    "test/generator.test.mjs": "a79d4dfc3a6a0f67e83d222c82bf412e1e3fccfc3ffb5c05b3d0ad78926f4b33",
+    "test/node.test.mjs": "b2f11d77d1fb96cbdc2b9e40e852ebfee4ad214292082c3e9aeb19a3a717dd76",
+    "test/package.test.mjs": "f3708cab51ad780c059ad60d0bf505e1fab42fe8374933684c28cab61f4786a0",
+    "test/resources.test.mjs": "7dcbfe19358754683f3addc166dbad35b2c32225176e362e62439c9c8cbd99b8",
+    "test/scalars.test.mjs": "db7f0a0f0f0fa786e563298e6e3f725bb5c10b10116ad9582ab88d35b03e07fa",
+    "test/wit/contract.wit": "faf3ab1857650179d0d719b62b45dab663e7b97634a69171acaf144dac2231c6",
+    "test/wit/deps/host/host.wit": "5e98bfcf783114c9d3e39e4bcd72e98f6186d8ff41a08f382e38fdc0a04318d7",
+    "tools/build.mjs": "455a65314a083bd0ea75e19857308d4885d4c360a3dd2be1253fd66dc7dd769f",
+    "tools/component.mjs": "0ba910699e6d4cf88c230e1fd38baf8edda3abbde380a89d28f700fa14917856",
+    "tools/facade.mjs": "85476faf1c605076f92528f2cdb82545ff40747ad09f0887f9b68f911261d6e4",
+    "tools/generate.mjs": "6466a15cb5ab437d34cdcc0921733959d6f19c97f9aa3476a1e71254336182a9",
+    "tools/index.mjs": "7ae29c2dbcd90be86973506e98a03bb20ede5e39d2bcbe31d12906ae92bc7aca",
+    "tools/measure.mjs": "c587fc8e4a271e84ac42ebb2146eee9c335627a13789b6f778c8c1da0b3a2b3c",
+    "tools/pack.mjs": "85d203b7cdc5184e9e42d354bf856cb2c0879ec7808f1c8c67d3b6a451ac0f0f",
+    "tools/paths.mjs": "c982e54ba93b6605dfa338758e86732e9645f7cfa7fe659ad8f96cea03c91d94",
+    "tools/style.mjs": "8e0d89982727785c10b6b7ff59b166760be06e50944d2e27d420f4f41b0a0b3a",
+    "wit/host.wit": "5e98bfcf783114c9d3e39e4bcd72e98f6186d8ff41a08f382e38fdc0a04318d7",
+    "worker.mjs": "ab9676d018085690faff103d334345c32820002599abcee7b394dc61815dc671"
+  },
+  "packages": {
+    "platform": {
+      "file": "lawspec-host-sdk-darwin-arm64-0.2.0.tgz",
+      "integrity": "sha512-WO2u/BH/xP2ukrlKSE1uOQQ44Nfql3HUyYzMdM4q6The7qAFLwb8P+W01DubJRruDXcS7iwFNx+UFfeapNNm5Q==",
+      "shasum": "7d4f37af42a7d54ce9f4a504661366301800e304"
+    },
+    "runtime": {
+      "file": "lawspec-host-sdk-0.2.0.tgz",
+      "integrity": "sha512-NpEg7MdCQnNqH2JNYIPleFbm3vJI0IkMu3A+5u7fyYz3VROOVnHBlxAjU9gtC1RW/8Y29oq6k2aZZkldKXHNcQ==",
+      "shasum": "8fda805ca1d0836ddb311159020ecef4f7855e10"
+    },
+    "build": {
+      "file": "lawspec-host-sdk-build-0.2.0.tgz",
+      "integrity": "sha512-N3crRbvEJgyLv1u3EoCMfsU0jt4WgLbN7DqOSfh8KcBUT8bvdhrCtEzCXz/dL4342flqx/qhBnJqPYJANf4XFA==",
+      "shasum": "f3ab6b26da6c5ee9cd7a186b2cc7fa48c15f6e37"
+    }
+  },
+  "artifacts": {
+    "haskell-contract": "c8f07b508622afdac536f5f27cfdf15a5bbdaa1f0d96d33d734876a4cdca8f32",
+    "contract": "150423b6f74797868af78dd2d0db7b4a50294975757e24cb647e4d95c10a5ba5"
+  },
+  "checks": [
+    {
+      "command": "Node 22.23.3: node --test test/*.test.mjs",
+      "status": "passed",
+      "passed": 35,
+      "failed": 0,
+      "skipped": 0,
+      "log": ".artifacts/typed-boundary/tests-node22.log"
+    },
+    {
+      "command": "Node 24.21.0: node --test test/*.test.mjs",
+      "status": "passed",
+      "passed": 35,
+      "failed": 0,
+      "skipped": 0,
+      "log": ".artifacts/typed-boundary/tests-node24.log"
+    },
+    {
+      "command": "Node 26.8.1: node --test test/*.test.mjs",
+      "status": "passed",
+      "passed": 35,
+      "failed": 0,
+      "skipped": 0,
+      "log": ".artifacts/typed-boundary/tests-node26.log"
+    },
+    {
+      "command": "npm run build",
+      "status": "passed"
+    },
+    {
+      "command": "pinned Prettier/Allman, Ormolu and rustfmt checks",
+      "status": "passed"
+    },
+    {
+      "command": "lawspec project validate --project .",
+      "status": "failed",
+      "definitions": "passed",
+      "verification": "not-verified",
+      "canon": "comments, parser limitations, unavailable Git provenance and pending review"
+    }
+  ],
+  "measurements": {
+    "recordedAt": "2026-11-04T21:16:44.735Z",
+    "platform": "darwin",
+    "arch": "arm64",
+    "node": "v26.8.1",
+    "scope": "generic contract fixtures, not full LawSpec performance acceptance",
+    "rows": [
+      {
+        "fixture": "haskell-contract",
+        "identity": {
+          "artifact": "c8f07b508622afdac536f5f27cfdf15a5bbdaa1f0d96d33d734876a4cdca8f32",
+          "ready": true,
+          "runtime": "wasmtime-50.0.1:85eea6539373976f1ed407b03c6ed63408986ad5a67fae625eb23dccae387c95",
+          "provider": "d3e2b0727ae162b4101ea87b4a907001e670457828601f5812f8c77178ca64bf",
+          "policy": "29c8e4e311da4988986bac172ec94c9d1560ed47e5190869f8039def3245172a",
+          "interface": "host:contract/application@0.2.0"
+        },
+        "startupMs": {
+          "samples": [
+            404.39399999999995,
+            194.639542,
+            185.51366700000005,
+            187.6127909999999,
+            182.18225000000007
+          ],
+          "median": 187.6127909999999
+        },
+        "interactiveMs": {
+          "samples": 100,
+          "median": 0.24766699999997854,
+          "p95": 0.34712500000000546
+        },
+        "helperRssKiB": 240592,
+        "componentBytes": 2029896,
+        "browserRawBytes": 2830528,
+        "browserGzipBytes": 687621
+      },
+      {
+        "fixture": "contract",
+        "identity": {
+          "artifact": "150423b6f74797868af78dd2d0db7b4a50294975757e24cb647e4d95c10a5ba5",
+          "ready": true,
+          "runtime": "wasmtime-50.0.1:85eea6539373976f1ed407b03c6ed63408986ad5a67fae625eb23dccae387c95",
+          "provider": "d3e2b0727ae162b4101ea87b4a907001e670457828601f5812f8c77178ca64bf",
+          "policy": "29c8e4e311da4988986bac172ec94c9d1560ed47e5190869f8039def3245172a",
+          "interface": "host:contract/application@0.2.0"
+        },
+        "startupMs": {
+          "samples": [
+            22.784832999999935,
+            20.419291000000158,
+            22.246583999999984,
+            20.722125000000005,
+            22.662541000000147
+          ],
+          "median": 22.246583999999984
+        },
+        "interactiveMs": {
+          "samples": 100,
+          "median": 0.03754099999991922,
+          "p95": 0.10629200000016681
+        },
+        "helperRssKiB": 32528,
+        "componentBytes": 124750,
+        "browserRawBytes": 802565,
+        "browserGzipBytes": 144881
+      }
+    ]
+  },
+  "limitations": [
+    "SDK boundary increment; full LawSpec application migration and cutover remain incomplete",
+    "Only macOS ARM64 executed; other native platforms not accepted",
+    "No publication or tags",
+    "Canon validation is not complete and human review remains pending",
+    "Dynamic resource scopes are runtime checks, not a static lifetime proof",
+    "Async WIT/future/stream types, floats, chars, flags and tuples remain unsupported by the Haskell emitter",
+    "Separate long-lived UI/job sessions and expanded typed host facilities remain incomplete"
+  ]
+}

@@ -1,0 +1,12 @@
+# Owner Allman override, then Google's Rust guide. The formatter is pinned in
+# test/locks/rustfmt.txt; this does not enable nightly features in emitted Rust.
+edition = "2024"
+style_edition = "2024"
+max_width = 100
+hard_tabs = false
+newline_style = "Unix"
+brace_style = "AlwaysNextLine"
+control_brace_style = "AlwaysNextLine"
+imports_granularity = "Module"
+hex_literal_case = "Lower"
+format_macro_matchers = true

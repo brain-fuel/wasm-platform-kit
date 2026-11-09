@@ -1,0 +1,25 @@
+-- ref:DEC-host-sdk-direct-haskell
+unit host_sdk.authority
+
+-- This abstract policy contract does not claim to verify either runtime.
+function permitted (applicationGrant :: Bool) (operationInScope :: Bool)
+  (pluginDeclaration :: Bool) -> Bool is
+  applicationGrant and operationInScope
+end function
+
+law "|a declaration cannot manufacture authority| is
+  definition:
+    for all (declared :: Bool) (inScope :: Bool) =>
+      permitted false inScope declared must be false
+    end for all
+  end definition
+end law
+
+law "|requirements do not narrow an already scoped application grant| is
+  definition:
+    for all (granted :: Bool) (inScope :: Bool) =>
+      permitted granted inScope true must be permitted granted inScope false
+    end for all
+  end definition
+end law
+end unit

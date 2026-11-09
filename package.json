@@ -1,0 +1,68 @@
+{
+  "name": "wasm-platform-kit",
+  "version": "0.2.0",
+  "description": "Capability-scoped WebAssembly components with typed Haskell guests",
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22"
+  },
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "browser": "./browser.mjs",
+      "default": "./node.mjs"
+    },
+    "./browser": {
+      "types": "./index.d.ts",
+      "default": "./browser.mjs"
+    },
+    "./worker": "./worker.mjs",
+    "./package.json": "./package.json",
+    "./install": {
+      "types": "./install.d.ts",
+      "default": "./install.mjs"
+    },
+    "./native-registration": "./native-registration.mjs"
+  },
+  "files": [
+    "node.mjs",
+    "browser.mjs",
+    "worker.mjs",
+    "client.mjs",
+    "policy.mjs",
+    "index.d.ts",
+    "assets/wasi",
+    "README.md",
+    "LICENSE",
+    "install.mjs",
+    "install.d.ts",
+    "native-registration.mjs"
+  ],
+  "scripts": {
+    "build": "node tools/build.mjs",
+    "test": "node --test test/*.test.mjs",
+    "pack:local": "node tools/pack.mjs",
+    "format": "node tools/style.mjs",
+    "build:platform": "node tools/platform.mjs"
+  },
+  "devDependencies": {
+    "@bytecodealliance/jco": "1.41.0",
+    "@bytecodealliance/preview2-shim": "0.31.0",
+    "@playwright/test": "1.63.0",
+    "prettier": "3.9.10",
+    "prettier-plugin-brace-style": "0.10.4",
+    "typescript": "6.0.3"
+  },
+  "optionalDependencies": {
+    "wasm-platform-kit-darwin-arm64": "0.2.0",
+    "wasm-platform-kit-darwin-x64": "0.2.0",
+    "wasm-platform-kit-linux-arm64": "0.2.0",
+    "wasm-platform-kit-linux-x64": "0.2.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brain-fuel/wasm-platform-kit.git"
+  },
+  "homepage": "https://github.com/brain-fuel/wasm-platform-kit#readme"
+}

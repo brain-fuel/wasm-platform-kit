@@ -1,0 +1,10 @@
+/target/
+/node_modules/
+/assets/
+/generated/
+/platforms/
+/packages/
+/dist/
+*.tgz
+.canon-cache/
+/.artifacts/

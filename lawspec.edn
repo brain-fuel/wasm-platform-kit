@@ -1,0 +1,13 @@
+{
+  :manifest-version 1
+  :component {
+    :name "wasm-platform-kit"
+    :version "0.2.0"
+  }
+  :language-profile "1.0-rc.2"
+  :sources ["spec"]
+  :verification {
+    :layers []
+  }
+  :targets []
+}

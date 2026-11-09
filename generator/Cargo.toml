@@ -1,0 +1,13 @@
+[package]
+name = "wit-haskell"
+version = "0.2.0"
+edition = "2024"
+license = "MIT"
+
+[dependencies]
+anyhow.workspace = true
+serde_json.workspace = true
+wit-parser = "=0.263.0"
+wit-component = "=0.263.0"
+wasm-encoder = { version = "=0.263.0", features = ["wasmparser"] }
+wasmparser = "=0.263.0"
